@@ -14,7 +14,7 @@
 			<description>
 			Vaadin application class to start</description>
 			<param-name>application</param-name>
-			<param-value>org.vaadin.addon.extendedlabel.example.ExtendedlabelApplication</param-value>
+			<param-value>org.vaadin.addon.extendedlabel.example.ExtendedLabelExampleUI</param-value>
 		</init-param>
 		<init-param>
 			<description>
