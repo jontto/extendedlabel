@@ -27,7 +27,8 @@ public class ExtendedlabelApplication extends Application implements TextChangeL
 	@Override
 	public void init() {
 		VerticalLayout rootLayout = new VerticalLayout();
-		rootLayout.setSpacing(false);
+		rootLayout.setSpacing(true);
+		rootLayout.setMargin(true);
 		Window mainWindow = new Window("Markdownforvaadin Application");
 		mainWindow.setContent(rootLayout);
 		setMainWindow(mainWindow);
