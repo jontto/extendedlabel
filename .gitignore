@@ -4,3 +4,11 @@
 *.jar
 *.war
 *.ear
+
+# Vaadin stuff #
+WebContent/VAADIN/widgetsets/**
+rebel.xml
+.settings
+build/classes
+build/result
+
