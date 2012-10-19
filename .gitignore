@@ -4,6 +4,8 @@
 WebContent/VAADIN/widgetsets/**
 rebel.xml
 .settings
+.classpath
+.project
 build/classes
 build/result
 
