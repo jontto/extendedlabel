@@ -1,16 +1,11 @@
 package org.vaadin.addon.extendedlabel.client.ui;
 
-import org.vaadin.addon.extendedlabel.ExtendedLabel;
-
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.PreElement;
 import com.vaadin.client.Util;
 import com.vaadin.client.communication.StateChangeEvent;
-import com.vaadin.client.ui.AbstractComponentConnector;
 import com.vaadin.client.ui.label.LabelConnector;
-import com.vaadin.client.ui.label.VLabel;
 import com.vaadin.shared.ui.Connect;
-import com.vaadin.shared.ui.label.LabelState;
 
 @Connect(org.vaadin.addon.extendedlabel.ExtendedLabel.class)
 public class ExtendedLabelConnector extends LabelConnector {
