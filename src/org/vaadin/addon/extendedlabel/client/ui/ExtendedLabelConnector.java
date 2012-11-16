@@ -20,7 +20,7 @@ public class ExtendedLabelConnector extends LabelConnector {
     public void onStateChanged(StateChangeEvent stateChangeEvent) {
         super.onStateChanged(stateChangeEvent);
         boolean sinkOnloads = false;
-        switch (getState().contentMode) {
+        switch (getState().extendedContentMode) {
         case PREFORMATTED:
             PreElement preElement = Document.get().createPreElement();
             preElement.setInnerText(getState().text);

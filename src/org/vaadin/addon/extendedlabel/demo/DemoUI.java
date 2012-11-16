@@ -1,8 +1,9 @@
 package org.vaadin.addon.extendedlabel.demo;
 
+import org.vaadin.addon.extendedlabel.ExtendedLabel;
+import org.vaadin.addon.extendedlabel.client.ui.ExtendedContentMode;
+
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.ui.AbstractSelect.Filtering;
-import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
@@ -17,26 +18,10 @@ public class DemoUI extends UI {
 		
 		setContent(contentRoot);
 
-		setupSelection();
-		setupExamples();
+		
+		ExtendedLabel exl = new ExtendedLabel(ExampleSyntax.getMarkdownSample(), ExtendedContentMode.MARKDOWN);
+		contentRoot.addComponent(exl);
 	}
 
-	private void setupExamples() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void setupSelection() {
-		ComboBox combo = new ComboBox("Choose what syntax to view:");
-		combo.addItem("Creole");
-		combo.addItem("Markdown");
-		combo.addItem("Textile");
-		combo.setFilteringMode(Filtering.FILTERINGMODE_OFF);
-		combo.setImmediate(true);
-		combo.setValue("Creole");
-		combo.setNullSelectionAllowed(false);
-		
-		addComponent(combo);
-	}
 
 }

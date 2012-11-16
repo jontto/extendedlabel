@@ -34,7 +34,7 @@ public class ExtendedLabel extends Label {
           throw new IllegalArgumentException("Content mode can not be null");
       }
 
-      getState().contentMode = contentMode;
+      getState().extendedContentMode = contentMode;
 	}
 	
 	@Override
