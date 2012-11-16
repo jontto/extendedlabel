@@ -1,6 +1,6 @@
 package org.vaadin.addon.extendedlabel.demo;
 
-import org.vaadin.addon.extendedlabel.ExtendedLabel;
+import org.vaadin.addon.extendedlabel.SSExtendedLabel;
 import org.vaadin.addon.extendedlabel.client.ui.ExtendedContentMode;
 
 import com.vaadin.server.VaadinRequest;
@@ -19,8 +19,10 @@ public class DemoUI extends UI {
 		setContent(contentRoot);
 
 		
-		ExtendedLabel exl = new ExtendedLabel(ExampleSyntax.getMarkdownSample(), ExtendedContentMode.MARKDOWN);
+		SSExtendedLabel exl = new SSExtendedLabel(ExampleSyntax.getMarkdownSample(), ExtendedContentMode.MARKDOWN);
 		contentRoot.addComponent(exl);
+		
+		
 	}
 
 

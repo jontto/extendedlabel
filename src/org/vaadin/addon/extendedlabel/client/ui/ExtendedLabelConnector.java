@@ -43,15 +43,15 @@ public class ExtendedLabelConnector extends LabelConnector {
             
         case CREOLE:
         	sinkOnloads = true;
-        	getWidget().setHTML("CREOLE: " + getState().text);
+        	getWidget().setHTML(getState().getCreole());
         	break;
         case MARKDOWN:
         	sinkOnloads = true;
-        	getWidget().setHTML("MARKDOWN: " + getState().text);
+        	getWidget().setHTML(getState().getMarkdown());
         	break;
         case TEXTILE:
         	sinkOnloads = true;
-        	getWidget().setHTML("TEXTTILE: " + getState().text);
+        	getWidget().setHTML(getState().getTextile());
         	break;
         default:
             getWidget().setText("");

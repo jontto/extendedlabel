@@ -1,6 +1,6 @@
 package org.vaadin.addon.extendedlabel.demo.view;
 
-import org.vaadin.addon.extendedlabel.ExtendedLabel;
+import org.vaadin.addon.extendedlabel.SSExtendedLabel;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -80,7 +80,7 @@ public abstract class AbstractParserView extends CustomComponent implements View
 	
 	protected abstract String getExampleSyntax();
 	
-	protected abstract ExtendedLabel getLabel(String syntax);
+	protected abstract SSExtendedLabel getLabel(String syntax);
 	
 	public static String getViewName() {
 		return "DEFAULT_NAME";
