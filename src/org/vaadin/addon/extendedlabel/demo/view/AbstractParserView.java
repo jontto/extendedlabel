@@ -1,13 +1,10 @@
 package org.vaadin.addon.extendedlabel.demo.view;
 
 import org.vaadin.addon.extendedlabel.ExtendedLabel;
-import org.vaadin.addon.extendedlabel.demo.ExampleSyntax;
 
-import com.vaadin.data.Property;
-import com.vaadin.data.Property.ValueChangeEvent;
-import com.vaadin.event.FieldEvents.TextChangeListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.ui.AbstractSelect.Filtering;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.CustomComponent;
@@ -15,17 +12,17 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.AbstractSelect.Filtering;
 
 public abstract class AbstractParserView extends CustomComponent implements View {
 
 	private Panel processed;
+	private VerticalLayout root;
 	
 	public AbstractParserView() {
-		VerticalLayout vl = new VerticalLayout();
-		vl.setSpacing(true);
-		vl.setMargin(true);
-		setCompositionRoot(vl);
+		root = new VerticalLayout();
+		root.setSpacing(true);
+		root.setMargin(true);
+		setCompositionRoot(root);
 		
 		ComboBox combo = new ComboBox("Choose what syntax to view:");
 		combo.addItem("Markdown");
@@ -49,7 +46,7 @@ public abstract class AbstractParserView extends CustomComponent implements View
 //			}
 //		});
 		
-		addComponent(combo);
+		root.addComponent(combo);
 		
 		setupContent();
 	}
@@ -64,13 +61,12 @@ public abstract class AbstractParserView extends CustomComponent implements View
 	private void setupContent() {
 		
 		HorizontalLayout hl = new HorizontalLayout();
-		addComponent(hl);
+		root.addComponent(hl);
 		
 		Panel normal = new Panel(getViewName() + " syntax");
 		TextArea editor = new TextArea("Syntax editor", getExampleSyntax());
 		editor.setRows(30);
 		editor.setColumns(20);
-		editor.addListener((TextChangeListener) this);
 		editor.setImmediate(true);
 		normal.addComponent(editor);
 		hl.addComponent(normal);

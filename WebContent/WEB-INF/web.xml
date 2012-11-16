@@ -21,7 +21,7 @@
 		</init-param>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Extendedlabel Application</servlet-name>
+		<servlet-name>ExtendedLabel Demo Application</servlet-name>
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 </web-app>
