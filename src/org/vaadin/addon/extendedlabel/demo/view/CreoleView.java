@@ -6,6 +6,10 @@ import org.vaadin.addon.extendedlabel.demo.ExampleSyntax;
 
 public class CreoleView extends AbstractParserView {
 
+	public CreoleView() {
+		super(getViewName());
+	}
+	
 	@Override
 	protected String getExampleSyntax() {
 		return ExampleSyntax.getCreoleSample();

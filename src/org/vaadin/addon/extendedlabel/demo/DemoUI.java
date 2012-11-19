@@ -18,7 +18,6 @@ public class DemoUI extends UI {
 		
 		setContent(contentRoot);
 
-		
 		SSExtendedLabel exl = new SSExtendedLabel(ExampleSyntax.getMarkdownSample(), ExtendedContentMode.MARKDOWN);
 		contentRoot.addComponent(exl);
 		

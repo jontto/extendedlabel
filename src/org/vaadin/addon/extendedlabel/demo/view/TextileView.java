@@ -6,6 +6,10 @@ import org.vaadin.addon.extendedlabel.demo.ExampleSyntax;
 
 public class TextileView extends AbstractParserView {
 
+	public TextileView() {
+		super(getViewName());
+	}
+	
 	@Override
 	protected String getExampleSyntax() {
 		return ExampleSyntax.getTextileSample();

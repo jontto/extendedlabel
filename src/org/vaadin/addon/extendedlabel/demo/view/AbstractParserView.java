@@ -17,8 +17,9 @@ public abstract class AbstractParserView extends CustomComponent implements View
 
 	private Panel processed;
 	private VerticalLayout root;
+	private VerticalLayout editorLayout, processedLayout;
 	
-	public AbstractParserView() {
+	public AbstractParserView(String viewName) {
 		root = new VerticalLayout();
 		root.setSpacing(true);
 		root.setMargin(true);
@@ -30,7 +31,7 @@ public abstract class AbstractParserView extends CustomComponent implements View
 		combo.addItem("Creole");
 		combo.setFilteringMode(Filtering.FILTERINGMODE_OFF);
 		combo.setImmediate(true);
-		combo.setValue("Creole");
+		combo.setValue("Markdown");
 		combo.setNullSelectionAllowed(false);
 //		combo.addListener(new Property.ValueChangeListener() {
 //			@Override
@@ -48,13 +49,14 @@ public abstract class AbstractParserView extends CustomComponent implements View
 		
 		root.addComponent(combo);
 		
+		this.viewName = viewName; 
 		setupContent();
 	}
 	
 	@Override
 	public void enter(ViewChangeEvent event) {
 		
-		processed.addComponent(getLabel(getExampleSyntax()));
+		processedLayout.addComponent(getLabel(getExampleSyntax()));
 
 	}
 	
@@ -64,14 +66,18 @@ public abstract class AbstractParserView extends CustomComponent implements View
 		root.addComponent(hl);
 		
 		Panel normal = new Panel(getViewName() + " syntax");
+		editorLayout = new VerticalLayout();
+		normal.setContent(editorLayout);
 		TextArea editor = new TextArea("Syntax editor", getExampleSyntax());
 		editor.setRows(30);
 		editor.setColumns(20);
 		editor.setImmediate(true);
-		normal.addComponent(editor);
+		editorLayout.addComponent(editor);
 		hl.addComponent(normal);
 		
 		this.processed = new Panel("Processed syntax");
+		processedLayout = new VerticalLayout();
+		processed.setContent(processedLayout);
 		hl.addComponent(processed);
 		
 		hl.setComponentAlignment(normal, Alignment.TOP_LEFT);
@@ -81,9 +87,10 @@ public abstract class AbstractParserView extends CustomComponent implements View
 	protected abstract String getExampleSyntax();
 	
 	protected abstract SSExtendedLabel getLabel(String syntax);
-	
-	public static String getViewName() {
-		return "DEFAULT_NAME";
-	}
 
+	protected String viewName;
+	
+	private String getViewName() {
+		return this.viewName;
+	}
 }

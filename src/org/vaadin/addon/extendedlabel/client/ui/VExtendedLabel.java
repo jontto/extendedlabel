@@ -1,6 +1,7 @@
 package org.vaadin.addon.extendedlabel.client.ui;
 
-import com.vaadin.client.ui.label.VLabel;
+import com.vaadin.client.ui.VLabel;
+
 
 public class VExtendedLabel extends VLabel {
 

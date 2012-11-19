@@ -4,6 +4,10 @@ import org.vaadin.addon.extendedlabel.SSExtendedLabel;
 
 public class MainView extends AbstractParserView {
 
+	public MainView() {
+		super(getViewName());
+	}
+	
 	@Override
 	protected String getExampleSyntax() {
 		return "";
