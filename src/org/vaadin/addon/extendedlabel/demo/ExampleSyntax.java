@@ -5,7 +5,7 @@ public class ExampleSyntax {
 	public static String getMarkdownSample() {
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("Syntax examples\n=============\n\n");
+		sb.append("Markdown syntax\n=============\n\n");
 		sb.append("## List\n");
 		sb.append("1. Item\n");
 		sb.append("2. Stylish text\n");
@@ -30,7 +30,7 @@ public class ExampleSyntax {
 	public static String getTextileSample() {
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("h1. Syntax examples\n\n");
+		sb.append("h1. Textile syntax\n\n");
 		sb.append("h2. List\n\n");
 		sb.append("1. Item\n");
 		sb.append("2. Stylish text\n");
@@ -54,7 +54,7 @@ public class ExampleSyntax {
 	public static String getCreoleSample() {
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("=Syntax examples=\n\n");
+		sb.append("=Creole syntax=\n\n");
 		sb.append("==List\n\n");
 		sb.append("# Item\n");
 		sb.append("# Stylish text\n");

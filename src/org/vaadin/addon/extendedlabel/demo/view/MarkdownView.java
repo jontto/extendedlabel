@@ -4,10 +4,12 @@ import org.vaadin.addon.extendedlabel.SSExtendedLabel;
 import org.vaadin.addon.extendedlabel.client.ui.ExtendedContentMode;
 import org.vaadin.addon.extendedlabel.demo.ExampleSyntax;
 
+import com.vaadin.navigator.Navigator;
+
 public class MarkdownView extends AbstractParserView {
 
-	public MarkdownView() {
-		super(getViewName());
+	public MarkdownView(Navigator navigator) {
+		super(getViewName(), navigator);
 	}
 	
 	@Override
@@ -16,8 +18,8 @@ public class MarkdownView extends AbstractParserView {
 	}
 
 	@Override
-	protected SSExtendedLabel getLabel(String syntax) {
-		return new SSExtendedLabel(syntax, ExtendedContentMode.MARKDOWN);
+	protected SSExtendedLabel getLabel() {
+		return new SSExtendedLabel(getExampleSyntax(), ExtendedContentMode.MARKDOWN);
 	}
 
 	public static String getViewName() {

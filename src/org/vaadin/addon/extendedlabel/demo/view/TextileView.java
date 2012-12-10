@@ -4,10 +4,12 @@ import org.vaadin.addon.extendedlabel.SSExtendedLabel;
 import org.vaadin.addon.extendedlabel.client.ui.ExtendedContentMode;
 import org.vaadin.addon.extendedlabel.demo.ExampleSyntax;
 
+import com.vaadin.navigator.Navigator;
+
 public class TextileView extends AbstractParserView {
 
-	public TextileView() {
-		super(getViewName());
+	public TextileView(Navigator navigator) {
+		super(getViewName(), navigator);
 	}
 	
 	@Override
@@ -16,8 +18,8 @@ public class TextileView extends AbstractParserView {
 	}
 
 	@Override
-	protected SSExtendedLabel getLabel(String syntax) {
-		return new SSExtendedLabel(syntax, ExtendedContentMode.TEXTILE);
+	protected SSExtendedLabel getLabel() {
+		return new SSExtendedLabel(getExampleSyntax(), ExtendedContentMode.TEXTILE);
 	}
 
 	public static String getViewName() {

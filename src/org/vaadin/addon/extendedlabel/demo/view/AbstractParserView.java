@@ -2,9 +2,11 @@ package org.vaadin.addon.extendedlabel.demo.view;
 
 import org.vaadin.addon.extendedlabel.SSExtendedLabel;
 
+import com.vaadin.data.Property.ValueChangeEvent;
+import com.vaadin.data.Property.ValueChangeListener;
+import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.ui.AbstractSelect.Filtering;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.CustomComponent;
@@ -17,36 +19,34 @@ public abstract class AbstractParserView extends CustomComponent implements View
 
 	private Panel processed;
 	private VerticalLayout root;
-	private VerticalLayout editorLayout, processedLayout;
+	private VerticalLayout editorLayout;
+	private static VerticalLayout processedLayout;
+	private static ComboBox combo;
+	private static Navigator navigator;
 	
-	public AbstractParserView(String viewName) {
+	public AbstractParserView(String viewName, final Navigator navigator) {
+		AbstractParserView.navigator = navigator;
 		root = new VerticalLayout();
 		root.setSpacing(true);
 		root.setMargin(true);
 		setCompositionRoot(root);
-		
-		ComboBox combo = new ComboBox("Choose what syntax to view:");
+
+		combo = new ComboBox("Choose what syntax to view:");
 		combo.addItem("Markdown");
 		combo.addItem("Textile");
 		combo.addItem("Creole");
-		combo.setFilteringMode(Filtering.FILTERINGMODE_OFF);
 		combo.setImmediate(true);
-		combo.setValue("Markdown");
+
+		combo.setValue(viewName);
 		combo.setNullSelectionAllowed(false);
-//		combo.addListener(new Property.ValueChangeListener() {
-//			@Override
-//			public void valueChange(ValueChangeEvent event) {
-//				hl.removeAllComponents();
-//				if(event.getProperty().getValue().equals("Markdown")) {
-//					setMarkdownContent();
-//				} else if(event.getProperty().getValue().equals("Textile")) {
-//					setTextileContent();
-//				} else if(event.getProperty().getValue().equals("Creole")) {
-//					setCreoleContent();
-//				}
-//			}
-//		});
-		
+
+		combo.addValueChangeListener(new ValueChangeListener() {
+			
+			@Override
+			public void valueChange(ValueChangeEvent event) {
+				navigator.navigateTo((String) combo.getValue());
+			}
+		});
 		root.addComponent(combo);
 		
 		this.viewName = viewName; 
@@ -55,8 +55,8 @@ public abstract class AbstractParserView extends CustomComponent implements View
 	
 	@Override
 	public void enter(ViewChangeEvent event) {
-		
-		processedLayout.addComponent(getLabel(getExampleSyntax()));
+		processedLayout.removeAllComponents();
+		processedLayout.addComponent(getLabel());
 
 	}
 	
@@ -86,7 +86,7 @@ public abstract class AbstractParserView extends CustomComponent implements View
 	
 	protected abstract String getExampleSyntax();
 	
-	protected abstract SSExtendedLabel getLabel(String syntax);
+	protected abstract SSExtendedLabel getLabel();
 
 	protected String viewName;
 	
