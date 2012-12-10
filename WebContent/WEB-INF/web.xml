@@ -14,11 +14,6 @@
 			<param-name>UI</param-name>
 			<param-value>org.vaadin.addon.extendedlabel.demo.ExtendedLabelExampleUI</param-value>
 		</init-param>
-		<!-- <init-param>
-			<description>Application widgetset</description>
-			<param-name>widgetset</param-name>
-			<param-value>org.vaadin.addon.extendedlabel.ExtendedlabelWidgetset</param-value>
-		</init-param>-->
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ExtendedLabel Demo Application</servlet-name>

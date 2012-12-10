@@ -1,4 +1,4 @@
-package org.vaadin.addon.extendedlabel.client.ui;
+package org.vaadin.addon.extendedlabel;
 
 
 /**

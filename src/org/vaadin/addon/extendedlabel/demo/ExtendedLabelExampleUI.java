@@ -1,7 +1,7 @@
 package org.vaadin.addon.extendedlabel.demo;
 
-import org.vaadin.addon.extendedlabel.SSExtendedLabel;
-import org.vaadin.addon.extendedlabel.client.ui.ExtendedContentMode;
+import org.vaadin.addon.extendedlabel.ExtendedContentMode;
+import org.vaadin.addon.extendedlabel.ExtendedLabel;
 
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
@@ -27,6 +27,8 @@ public class ExtendedLabelExampleUI extends UI {
 	protected void init(VaadinRequest request) {
 		
 		content = new VerticalLayout();
+		content.setSpacing(true);
+		content.setMargin(true);
 		setContent(content);
 		
 		setupSelection();
@@ -55,12 +57,13 @@ public class ExtendedLabelExampleUI extends UI {
 
 	private void setupContent() {
 		HorizontalLayout hl = new HorizontalLayout();
+		hl.setSpacing(true);
 		content.addComponent(hl);
 		
-		syntaxPanel = new Panel();
+		syntaxPanel = new Panel("Syntax editor");
 		VerticalLayout editorLayout = new VerticalLayout();
 		syntaxPanel.setContent(editorLayout);
-		editor = new TextArea("Syntax editor");
+		editor = new TextArea();
 		editor.setRows(30);
 		editor.setColumns(20);
 		editor.setImmediate(true);
@@ -78,14 +81,13 @@ public class ExtendedLabelExampleUI extends UI {
 	}
 	
 	private void updateContent() {
-		syntaxPanel.setCaption((String) combo.getValue());
 		editor.setValue(getExampleSyntax());
 		processedLayout.removeAllComponents();
 		processedLayout.addComponent(getExampleLabel());
 	}
 
-	private SSExtendedLabel getExampleLabel() {
-		SSExtendedLabel label = new SSExtendedLabel(getExampleSyntax());
+	private ExtendedLabel getExampleLabel() {
+		ExtendedLabel label = new ExtendedLabel(getExampleSyntax());
 		String syntax = ((String) combo.getValue());
 		if(syntax.equalsIgnoreCase("Creole")) {
 			label.setContentMode(ExtendedContentMode.CREOLE);

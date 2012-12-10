@@ -1,45 +1,81 @@
 package org.vaadin.addon.extendedlabel;
 
+import net.sf.textile4j.Textile;
 
-import org.vaadin.addon.extendedlabel.client.ui.ExtendedContentMode;
-import org.vaadin.addon.extendedlabel.client.ui.ExtendedLabelState;
 
+import ys.wikiparser.WikiParser;
+
+import com.github.rjeschke.txtmark.Processor;
+import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Label;
-
-/**
- * Server side component for the VMarkdownLabel widget.
- */
 
 public class ExtendedLabel extends Label {
 
-	private String originalMarkup = "";
+	private String content;
+	private ExtendedContentMode extendedContentMode;
 	
-	int isExtendedLabel = 0;
-	
-	public ExtendedLabel() {
-		this("");
+	public ExtendedLabel(String text) {
+		this(text, ExtendedContentMode.TEXT);
 	}
 	
-	public ExtendedLabel(String string) {
-		super(string);
+	public ExtendedLabel(String text, ExtendedContentMode extendedContentMode) {
+		setValue(text);
+		setContentMode(extendedContentMode);
 	}
 	
-	public ExtendedLabel(String string, ExtendedContentMode contentMode) {
-		super(string);
-		setContentMode(contentMode);
+	public void setValue(String value) {
+		this.content = value;
+		super.setValue(getValueForLabel());
 	}
-	
-	public void setContentMode(ExtendedContentMode contentMode) {
-	  if (contentMode == null) {
-          throw new IllegalArgumentException("Content mode can not be null");
-      }
 
-      getState().extendedContentMode = contentMode;
+	public void setContentMode(ExtendedContentMode contentMode) {
+		this.extendedContentMode = contentMode;
+		super.setContentMode(getContentModeForLabel());
+		super.setValue(getValueForLabel());
 	}
 	
-	@Override
-	public ExtendedLabelState getState() {
-		return (ExtendedLabelState) super.getState();
+	private String getValueForLabel() {
+		if(this.extendedContentMode == null) {
+			return "";
+		}
+		switch(this.extendedContentMode) {
+		case CREOLE:
+			return WikiParser.renderXHTML(this.content);
+		case MARKDOWN:
+			return Processor.process(this.content);
+		case TEXTILE:
+			return new Textile().process(this.content);
+		default:
+			return this.content;
+		}
 	}
 	
+	private ContentMode getContentModeForLabel() {
+		switch(this.extendedContentMode) {
+		case CREOLE:
+		case MARKDOWN:
+		case TEXTILE:
+		case HTML:
+			return ContentMode.HTML;
+		case PREFORMATTED:
+			return ContentMode.PREFORMATTED;
+		case RAW:
+			return ContentMode.RAW;
+		case XML:
+			return ContentMode.XML;
+		case TEXT:
+		default:
+			return ContentMode.TEXT;
+		}
+	}
+
+	private boolean isExtendedContent() {
+		if(extendedContentMode == ExtendedContentMode.CREOLE
+				|| extendedContentMode == ExtendedContentMode.MARKDOWN
+				|| extendedContentMode == ExtendedContentMode.TEXTILE) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
