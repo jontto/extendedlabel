@@ -7,11 +7,9 @@ import com.vaadin.data.Property;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.event.FieldEvents.TextChangeEvent;
 import com.vaadin.event.FieldEvents.TextChangeListener;
-import com.vaadin.ui.AbstractLayout;
 import com.vaadin.ui.AbstractSelect.Filtering;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.ComboBox;
-import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextArea;
@@ -29,7 +27,7 @@ public class ExtendedlabelApplication extends Application implements TextChangeL
 		VerticalLayout rootLayout = new VerticalLayout();
 		rootLayout.setSpacing(true);
 		rootLayout.setMargin(true);
-		Window mainWindow = new Window("Markdownforvaadin Application");
+		Window mainWindow = new Window("ExtendedLabel demo");
 		mainWindow.setContent(rootLayout);
 		setMainWindow(mainWindow);
 		
@@ -65,8 +63,8 @@ public class ExtendedlabelApplication extends Application implements TextChangeL
 	private void setMarkdownContent() {
 		String syntax = ExampleSyntax.getMarkdownSample();
 		
-		Panel normal = new Panel("Markdown syntax");
-		TextArea editor = new TextArea("Syntax editor", syntax);
+		Panel normal = new Panel("Syntax editor");
+		TextArea editor = new TextArea("", syntax);
 		editor.setRows(30);
 		editor.setColumns(20);
 		editor.addListener((TextChangeListener) this);
@@ -88,8 +86,8 @@ public class ExtendedlabelApplication extends Application implements TextChangeL
 	private void setTextileContent() {
 		String syntax = ExampleSyntax.getTextileSample();
 		
-		Panel normal = new Panel("Textile syntax");
-		TextArea editor = new TextArea("Syntax editor", syntax);
+		Panel normal = new Panel("Syntax editor");
+		TextArea editor = new TextArea("", syntax);
 		editor.setRows(30);
 		editor.setColumns(20);
 		editor.addListener((TextChangeListener) this);
@@ -111,8 +109,8 @@ public class ExtendedlabelApplication extends Application implements TextChangeL
 	private void setCreoleContent() {
 		String syntax = ExampleSyntax.getCreoleSample();
 		
-		Panel normal = new Panel("Creole syntax");
-		TextArea editor = new TextArea("Syntax editor", syntax);
+		Panel normal = new Panel("Syntax editor");
+		TextArea editor = new TextArea("",syntax);
 		editor.setRows(30);
 		editor.setColumns(20);
 		editor.addListener((TextChangeListener) this);
