@@ -12,7 +12,7 @@ public class ExampleSyntax {
 		sb.append("3. Item with *emphasized* text\n");
 		sb.append("4. **This is really _important_**\n");
 		sb.append("\n");
-		sb.append("[Markdown](http://daringfireball.net/projects/markdown) is cool!\n");
+		sb.append("[Txtmark](https://github.com/rjeschke/txtmark) is cool!\n");
 		sb.append("\n***\n");
 		sb.append("Normal text\n\n");
 		sb.append("\tCode block for special people.\n");

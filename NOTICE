@@ -1,0 +1,8 @@
+This project uses these external libraries with the following licenses:
+
+Textile4j: 
+	BSD-like open source license
+Txtmark: 
+	Apache License Version 2.0
+WikiParser: 
+	Apache License Version 2.0
