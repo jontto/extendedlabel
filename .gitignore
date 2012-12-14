@@ -5,5 +5,5 @@ WebContent/VAADIN/widgetsets/**
 rebel.xml
 .settings
 build/classes
-build/result
-
+build/result/META-INF
+build/result/war
