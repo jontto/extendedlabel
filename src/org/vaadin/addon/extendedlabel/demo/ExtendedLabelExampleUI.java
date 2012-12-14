@@ -71,7 +71,9 @@ public class ExtendedLabelExampleUI extends UI {
 		hl.addComponent(syntaxPanel);
 		
 		processed = new Panel("Processed syntax");
+		processed.setWidth(300, Unit.PIXELS);
 		processedLayout = new VerticalLayout();
+		processedLayout.setMargin(true);
 		processed.setContent(processedLayout);
 		hl.addComponent(processed);
 		

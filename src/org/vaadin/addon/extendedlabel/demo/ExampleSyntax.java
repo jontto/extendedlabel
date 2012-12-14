@@ -37,7 +37,7 @@ public class ExampleSyntax {
 		sb.append("3. Item with _emphasized_ text\n");
 		sb.append("4. **This is really _important_ **\n");
 		sb.append("\n");
-		sb.append("\"Markdown\":http://daringfireball.net/projects/markdown  is cool!\n\n");
+		sb.append("\"Textile4j\":http://textile4j.sourceforge.net/  is cool!\n\n");
 		sb.append("<hr />\n\nNormal text\n\n");
 		sb.append("@Code block for special people.@\n");
 		sb.append("\n\n");
@@ -61,7 +61,7 @@ public class ExampleSyntax {
 		sb.append("# Item with //emphasized// text\n");
 		sb.append("# **This is really _important_ **\n");
 		sb.append("\n");
-		sb.append("[[http://daringfireball.net/projects/markdown|Markdown]] is cool!\n\n");
+		sb.append("[[http://web-tec.info/WikiParser/|WikiParser]] is cool!\n\n");
 		sb.append("----\n\nNormal text\n\n");
 		sb.append("{{http://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Vaadin-logo.svg/200px-Vaadin-logo.svg.png|Vaadin alt text}}\n");
 		sb.append("\n");
