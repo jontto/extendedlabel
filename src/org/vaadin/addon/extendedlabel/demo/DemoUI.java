@@ -7,6 +7,7 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
+
 public class DemoUI extends UI {
 
 	VerticalLayout contentRoot;
@@ -20,7 +21,6 @@ public class DemoUI extends UI {
 
 		ExtendedLabel exl = new ExtendedLabel(ExampleSyntax.getMarkdownSample(), ExtendedContentMode.MARKDOWN);
 		contentRoot.addComponent(exl);
-		
 		
 	}
 

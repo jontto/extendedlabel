@@ -1,8 +1,6 @@
 package org.vaadin.addon.extendedlabel;
 
 import net.sf.textile4j.Textile;
-
-
 import ys.wikiparser.WikiParser;
 
 import com.github.rjeschke.txtmark.Processor;

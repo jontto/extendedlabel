@@ -2,6 +2,7 @@
 
 # Vaadin stuff #
 WebContent/VAADIN/widgetsets/**
+WebContent/VAADIN/gwt-unitCache
 rebel.xml
 .settings
 .classpath
