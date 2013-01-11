@@ -1,8 +1,6 @@
 Manifest-Version: 1.0
-Implementation-Title: MarkdownLabel
-Implementation-Version: 0.1.0
+Implementation-Title: ExtendedLabel
+Implementation-Version: 1.7
 Vaadin-Package-Version: 1
-Vaadin-Widgetsets: org.vaadin.addon.markdownlabel.MarkdownlabelWidgets
- et
 Class-Path: 
 
