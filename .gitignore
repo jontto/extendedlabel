@@ -8,4 +8,5 @@ rebel.xml
 .classpath
 .project
 build/classes
-
+build/ivylibs
+build/result/META-INF

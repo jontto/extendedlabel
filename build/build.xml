@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="extendedlabel" basedir="../" default="all">
+<project name="extendedlabel" basedir="../" default="all"
+	xmlns:ivy="antlib:org.apache.ivy.ant">
 
     <!-- Main target that does all -->
     <target name="all" depends="clean-all, compile, widgetset, package-jar, package-zip, demo.war"/>
@@ -37,13 +38,18 @@
             </fileset>
         </path>
 	</target>
+	
+	<!-- Ivy resolving -->
+	<target name="resolve" depends="init">
+		<ivy:retrieve pattern="${build-path}/ivylibs/[artifact].[ext]" />
+	</target>
 
    <!-- ================================================================== -->
     <!-- Compilation                                                        -->
     <!-- ================================================================== -->
 
     <!-- Compile server-side Java -->
-	<target name="compile" depends="init">
+	<target name="compile" depends="init, resolve">
 		<echo>Compiling server side...</echo>
         <property name="result.classes" value="${result-path}/war/WEB-INF/classes"/>
 		<echo>${result.classes}</echo>
@@ -58,6 +64,9 @@
 				<path path="${gwt.dev.dir}" />
 				<path path="${gwt.user.dir}" />
 				<path path="${gwt.deps.dir}" />
+				<fileset dir="${build-path}/ivylibs">
+					<include name="*.jar" />
+				</fileset>
 			</classpath>
 		</javac>
 	</target>
