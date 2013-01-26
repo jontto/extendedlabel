@@ -154,6 +154,11 @@ Vaadin-Dependency: ${dependency.textile} ${dependency.txtmark} ${dependency.wiki
         	<zipfileset prefix="" file="${dependency.dir}/${dependency.textile}" />
         	<zipfileset prefix="" file="${dependency.dir}/${dependency.txtmark}" />
         	<zipfileset prefix="" file="${dependency.dir}/${dependency.wikiparser}" />
+        	<!-- License files -->
+        	<zipfileset prefix="" file="NOTICE" />
+        	<zipfileset prefix="" file="LICENSE" />
+        	<zipfileset prefix="" file="README.md" />
+        	<zipfileset prefix="" file="TEXTILE4J-LICENSE" />
         </zip>
     </target>
 
