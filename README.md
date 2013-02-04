@@ -16,6 +16,10 @@ VERSION is just a running number of releases without any more detailed informati
 - Markdown
 - Textile
 
+## Usage
+
+Just open the ZIP file and unzip the *.jar files to your WEB-INF/lib folder. These should be the extenededlabel jar file and the dependencies' jar files.
+
 ## Branches
 
 The main branch for now is for Vaadin 6 and there is another branch for the Vaadin 7 component.
