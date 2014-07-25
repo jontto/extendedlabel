@@ -2,12 +2,13 @@ package org.vaadin.addon.extendedlabel.demo;
 
 import org.vaadin.addon.extendedlabel.ExtendedContentMode;
 import org.vaadin.addon.extendedlabel.ExtendedLabel;
-
+import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 
+@Theme("extendedlabel")
 public class DemoUI extends UI {
 
 	VerticalLayout contentRoot;

@@ -2,7 +2,7 @@ package org.vaadin.addon.extendedlabel.demo;
 
 import org.vaadin.addon.extendedlabel.ExtendedContentMode;
 import org.vaadin.addon.extendedlabel.ExtendedLabel;
-
+import com.vaadin.annotations.Theme;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.server.VaadinRequest;
@@ -14,6 +14,7 @@ import com.vaadin.ui.TextArea;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
+@Theme("extendedlabel")
 public class ExtendedLabelExampleUI extends UI {
 	
 	private VerticalLayout content;
